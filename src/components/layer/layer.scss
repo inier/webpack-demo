@@ -1,0 +1,15 @@
+@import './next.scss';
+
+.layer{
+    width: 200px; 
+    height: 100px;
+    background-color: #3f3;
+    text-align: center;
+    > div{
+        width: 100px;
+        height: 100px;        
+        background: #ff3 url(../../assets/1.jpg) center no-repeat;
+    }       
+}
+
+   

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // webpack全局的对象compilation.assets
+        <%= compilation.assets[htmlWebpackPlugin.files.chunks.inline.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+    </script>
+</head>
+
+<body>
+    <!--系统当前时间: 可以直接通过模板的形式引入htmlWebpackPlugin.options中的属性-->
+    
+    <!--默认不自动inject入口文件，而是自定义方式导入-->
+    <% for(var k in htmlWebpackPlugin.files.chunks) { %>
+        <% if( k !== 'inline') { %>
+            <script src="<%= htmlWebpackPlugin.files.chunks[k].entry %>"></script>
+        <% } %>
+    <% } %>
+</body>
+    
+</html>
